@@ -1,0 +1,29 @@
+{
+  "name": "ai-talking-head-edit-desk",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node server.mjs",
+    "build": "tsc --noEmit && vite build",
+    "typecheck": "tsc --noEmit",
+    "validate:example": "python scripts/validate_edit_project.py examples/minimal-project/edit-project.json"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.520",
+    "@remotion/media": "4.0.520",
+    "@remotion/player": "4.0.520",
+    "@remotion/renderer": "4.0.520",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "remotion": "4.0.520"
+  },
+  "devDependencies": {
+    "@types/node": "22.15.3",
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.5",
+    "@vitejs/plugin-react": "4.4.1",
+    "typescript": "5.8.3",
+    "vite": "6.4.3"
+  }
+}

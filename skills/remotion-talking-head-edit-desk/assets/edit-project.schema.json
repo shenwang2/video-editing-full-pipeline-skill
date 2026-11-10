@@ -1,0 +1,286 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.edit-desk/schemas/edit-project.schema.json",
+  "title": "AI Talking-head Edit Project",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "project", "composition", "assets", "timeline", "settings"],
+  "properties": {
+    "schemaVersion": {"const": "1.0.0"},
+    "project": {"$ref": "#/$defs/project"},
+    "composition": {"$ref": "#/$defs/composition"},
+    "assets": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/asset"}
+    },
+    "timeline": {"$ref": "#/$defs/timeline"},
+    "settings": {"$ref": "#/$defs/settings"},
+    "provenance": {"type": "object", "additionalProperties": true}
+  },
+  "$defs": {
+    "project": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name", "mode", "createdAt", "sourceSkill"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "name": {"type": "string", "minLength": 1},
+        "mode": {"const": "human-assisted"},
+        "createdAt": {"type": "string", "format": "date-time"},
+        "sourceSkill": {"type": "string", "minLength": 1},
+        "sourceSkillFingerprint": {"type": "string"}
+      }
+    },
+    "composition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["width", "height", "fps", "durationMs", "backgroundAssetId"],
+      "properties": {
+        "width": {"type": "integer", "minimum": 2},
+        "height": {"type": "integer", "minimum": 2},
+        "fps": {"type": "number", "exclusiveMinimum": 0},
+        "durationMs": {"type": "integer", "minimum": 1},
+        "backgroundAssetId": {"type": "string", "minLength": 1},
+        "render": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "codec": {"enum": ["h264", "h265", "prores"]},
+            "crf": {"type": "integer", "minimum": 0, "maximum": 51},
+            "pixelFormat": {"type": "string"},
+            "outputName": {"type": "string", "minLength": 1}
+          }
+        }
+      }
+    },
+    "asset": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "type", "path", "status"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "type": {
+          "enum": ["clean-base", "raw-video", "h3-video", "external-video", "image", "audio", "sfx", "font"]
+        },
+        "path": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Project-relative path using forward slashes."
+        },
+        "status": {"enum": ["ready", "placeholder", "missing"]},
+        "originalPath": {"type": "string"},
+        "width": {"type": "integer", "minimum": 1},
+        "height": {"type": "integer", "minimum": 1},
+        "durationMs": {"type": "integer", "minimum": 0},
+        "hasAudio": {"type": "boolean"},
+        "label": {"type": "string"},
+        "checksum": {"type": "string"}
+      }
+    },
+    "timeRange": {
+      "type": "object",
+      "required": ["startMs", "endMs"],
+      "properties": {
+        "startMs": {"type": "integer", "minimum": 0},
+        "endMs": {"type": "integer", "minimum": 1}
+      }
+    },
+    "placement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mode", "preset", "alignmentToken", "visibleEdge", "zIndex"],
+      "properties": {
+        "mode": {"enum": ["preset", "normalized"]},
+        "boundsMode": {"enum": ["layoutZone", "visibleContent"]},
+        "boundsVersion": {"const": 2, "description": "Versioned stable visible-content coordinates; omit for legacy placements."},
+        "preset": {
+          "enum": ["leftMiddle", "rightMiddle", "leftLowerSafe", "rightLowerSafe", "upperCenterSafe", "fullWidthUpper", "splitLeftRight", "centerTakeover", "fullscreen"]
+        },
+        "alignmentToken": {"enum": ["sectionTitleLeft", "sectionTitleRight", "centerAxis", "canvas"]},
+        "visibleEdge": {"enum": ["left", "center", "right"]},
+        "x": {"type": "number", "minimum": 0, "maximum": 1},
+        "y": {"type": "number", "minimum": 0, "maximum": 1},
+        "width": {"type": "number", "exclusiveMinimum": 0, "maximum": 1},
+        "height": {"type": "number", "exclusiveMinimum": 0, "maximum": 1},
+        "zIndex": {"type": "integer"},
+        "align": {"enum": ["left", "center", "right"]}
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"mode": {"const": "normalized"}}},
+          "then": {"required": ["x", "y", "width", "height"]}
+        }
+      ]
+    },
+    "foregroundEvent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "semanticLayer", "componentId", "variantId", "startMs", "endMs", "placement", "payload"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "semanticLayer": {"enum": ["title", "realObject", "informationRelationship", "memory"]},
+        "semanticPurpose": {"type": "string"},
+        "componentId": {"type": "string", "minLength": 1},
+        "variantId": {"type": "string", "minLength": 1},
+        "startMs": {"type": "integer", "minimum": 0},
+        "endMs": {"type": "integer", "minimum": 1},
+        "anchorText": {"type": "string"},
+        "placement": {"$ref": "#/$defs/placement"},
+        "payload": {"type": "object", "additionalProperties": true},
+        "stylePreset": {"type": "string"},
+        "style": {"type": "object", "additionalProperties": true},
+        "elementOverrides": {
+          "type": "object",
+          "description": "Stable per-card editor overrides. Coordinates are normalized deltas in the composition coordinate system.",
+          "additionalProperties": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "x": {"type": "number", "minimum": -1, "maximum": 1},
+              "y": {"type": "number", "minimum": -1, "maximum": 1},
+              "scale": {"type": "number", "minimum": 0.35, "maximum": 2.8},
+              "color": {"type": "string", "pattern": "^#[0-9A-Fa-f]{6}$"}
+            }
+          }
+        },
+        "assetIds": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+        "compositionGroup": {"type": "string"},
+        "transformGroupId": {"type": "string", "minLength": 1, "description": "Explicit editor-only linkage for compatible local events. Move, uniform resize, preset change and reset synchronize placement only; timing, assets, payload, colors and zIndex stay independent."},
+        "collisionCheckedWith": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+        "enabled": {"type": "boolean", "default": true}
+      }
+    },
+    "retimeSegment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "timelineStartMs", "timelineEndMs"],
+      "properties": {
+        "type": {"enum": ["play", "hold"]},
+        "timelineStartMs": {"type": "integer", "minimum": 0},
+        "timelineEndMs": {"type": "integer", "minimum": 1},
+        "sourceStartMs": {"type": "integer", "minimum": 0},
+        "sourceEndMs": {"type": "integer", "minimum": 0},
+        "playbackRate": {"type": "number", "exclusiveMinimum": 0}
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"type": {"const": "play"}}},
+          "then": {"required": ["sourceStartMs", "sourceEndMs", "playbackRate"]}
+        },
+        {
+          "if": {"properties": {"type": {"const": "hold"}}},
+          "then": {"required": ["sourceStartMs"]}
+        }
+      ]
+    },
+    "h3Event": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "assetId", "startMs", "endMs", "fit", "retime", "audio"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "assetId": {"type": "string", "minLength": 1},
+        "startMs": {"type": "integer", "minimum": 0},
+        "endMs": {"type": "integer", "minimum": 1},
+        "fit": {"const": "cover"},
+        "cropSafe": {"type": "object", "additionalProperties": true},
+        "retime": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/retimeSegment"}},
+        "audio": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["enabled", "volume"],
+          "properties": {
+            "enabled": {"type": "boolean"},
+            "volume": {"type": "number", "minimum": 0, "maximum": 1}
+          }
+        },
+        "enabled": {"type": "boolean", "default": true}
+      }
+    },
+    "captionCue": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "startMs", "endMs", "text"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "startMs": {"type": "integer", "minimum": 0},
+        "endMs": {"type": "integer", "minimum": 1},
+        "text": {"type": "string", "minLength": 1},
+        "lines": {"type": "array", "items": {"type": "string"}},
+        "stylePreset": {"type": "string"},
+        "style": {"type": "object", "additionalProperties": true}
+      }
+    },
+    "sfxCue": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "assetId", "atMs", "volume"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "assetId": {"type": "string", "minLength": 1},
+        "atMs": {"type": "integer", "minimum": 0},
+        "volume": {"type": "number", "minimum": 0, "maximum": 1},
+        "durationMs": {"type": "integer", "minimum": 1},
+        "enabled": {"type": "boolean", "default": true}
+      }
+    },
+    "timeline": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["foregroundEvents", "h3Events", "captionCues", "sfxCues"],
+      "properties": {
+        "foregroundEvents": {"type": "array", "items": {"$ref": "#/$defs/foregroundEvent"}},
+        "h3Events": {"type": "array", "items": {"$ref": "#/$defs/h3Event"}},
+        "captionCues": {"type": "array", "items": {"$ref": "#/$defs/captionCue"}},
+        "sfxCues": {"type": "array", "items": {"$ref": "#/$defs/sfxCue"}}
+      }
+    },
+    "settings": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["palette", "safeArea", "audio"],
+      "properties": {
+        "componentStyleMode": {"enum": ["legacy", "atomic"]},
+        "palette": {"type": "string", "minLength": 1},
+        "safeArea": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["top", "right", "bottom", "left"],
+          "properties": {
+            "top": {"type": "number", "minimum": 0, "maximum": 0.5},
+            "right": {"type": "number", "minimum": 0, "maximum": 0.5},
+            "bottom": {"type": "number", "minimum": 0, "maximum": 0.5},
+            "left": {"type": "number", "minimum": 0, "maximum": 0.5}
+          }
+        },
+        "audio": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["narrationGain", "h3MasterGain", "sfxMasterGain"],
+          "properties": {
+            "narrationGain": {"type": "number", "minimum": 0, "maximum": 2},
+            "h3MasterGain": {"type": "number", "minimum": 0, "maximum": 2},
+            "sfxMasterGain": {"type": "number", "minimum": 0, "maximum": 2}
+          }
+        },
+        "captionStyle": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "hidden": {"type": "boolean"},
+            "verticalPosition": {"type": "number", "minimum": 0, "maximum": 1},
+            "fontFamily": {"type": "string", "minLength": 1},
+            "fontSize": {"type": "number", "minimum": 18, "maximum": 220},
+            "color": {"type": "string", "minLength": 1},
+            "strokeColor": {"type": "string", "minLength": 1},
+            "strokeWidth": {"type": "number", "minimum": 0, "maximum": 16},
+            "backgroundEnabled": {"type": "boolean"},
+            "backgroundColor": {"type": "string", "minLength": 1},
+            "backgroundOpacity": {"type": "number", "minimum": 0, "maximum": 1},
+            "backgroundRadius": {"type": "number", "minimum": 0, "maximum": 100}
+          }
+        }
+      }
+    }
+  }
+}

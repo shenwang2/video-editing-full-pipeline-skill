@@ -1,0 +1,165 @@
+export type AssetType =
+  | 'clean-base'
+  | 'raw-video'
+  | 'h3-video'
+  | 'external-video'
+  | 'image'
+  | 'audio'
+  | 'sfx'
+  | 'font';
+
+export type EditAsset = {
+  id: string;
+  type: AssetType;
+  path: string;
+  status: 'ready' | 'placeholder' | 'missing';
+  originalPath?: string;
+  width?: number;
+  height?: number;
+  durationMs?: number;
+  hasAudio?: boolean;
+  label?: string;
+  checksum?: string;
+};
+
+export type Placement = {
+  mode: 'preset' | 'normalized';
+  preset: string;
+  alignmentToken?: 'sectionTitleLeft' | 'sectionTitleRight' | 'centerAxis' | 'canvas';
+  visibleEdge?: 'left' | 'center' | 'right';
+  x?: number;
+  y?: number;
+  width?: number;
+  height?: number;
+  zIndex: number;
+  align?: 'left' | 'center' | 'right';
+};
+
+export type ForegroundEvent = {
+  id: string;
+  semanticLayer: 'title' | 'realObject' | 'informationRelationship' | 'memory';
+  semanticPurpose?: string;
+  componentId: string;
+  variantId: string;
+  startMs: number;
+  endMs: number;
+  anchorText?: string;
+  placement: Placement;
+  payload: Record<string, unknown>;
+  stylePreset?: string;
+  style?: Record<string, unknown>;
+  elementOverrides?: Record<string, {
+    x?: number;
+    y?: number;
+    scale?: number;
+    color?: string;
+  }>;
+  assetIds?: string[];
+  compositionGroup?: string;
+  collisionCheckedWith?: string[];
+  enabled?: boolean;
+};
+
+export type H3Event = {
+  id: string;
+  assetId: string;
+  startMs: number;
+  endMs: number;
+  fit: 'cover';
+  cropSafe?: Record<string, unknown>;
+  retime: Array<{
+    type: 'play' | 'hold';
+    timelineStartMs: number;
+    timelineEndMs: number;
+    sourceStartMs?: number;
+    sourceEndMs?: number;
+    playbackRate?: number;
+  }>;
+  audio: {enabled: boolean; volume: number};
+  enabled?: boolean;
+};
+
+export type CaptionCue = {
+  id: string;
+  startMs: number;
+  endMs: number;
+  text: string;
+  lines?: string[];
+  stylePreset?: string;
+  style?: Record<string, unknown>;
+};
+
+export type CaptionStyle = {
+  hidden?: boolean;
+  fontFamily?: string;
+  fontSize?: number;
+  color?: string;
+  strokeColor?: string;
+  strokeWidth?: number;
+  backgroundEnabled?: boolean;
+  backgroundColor?: string;
+  backgroundOpacity?: number;
+  backgroundRadius?: number;
+};
+
+export type SfxCue = {
+  id: string;
+  assetId: string;
+  atMs: number;
+  volume: number;
+  durationMs?: number;
+  enabled?: boolean;
+};
+
+export type EditProject = {
+  schemaVersion: '1.0.0';
+  project: {
+    id: string;
+    name: string;
+    mode: 'human-assisted';
+    createdAt: string;
+    sourceSkill: string;
+    sourceSkillFingerprint?: string;
+  };
+  composition: {
+    width: number;
+    height: number;
+    fps: number;
+    durationMs: number;
+    backgroundAssetId: string;
+    render?: {
+      codec?: 'h264' | 'h265' | 'prores';
+      crf?: number;
+      pixelFormat?: string;
+      outputName?: string;
+    };
+  };
+  assets: EditAsset[];
+  timeline: {
+    foregroundEvents: ForegroundEvent[];
+    h3Events: H3Event[];
+    captionCues: CaptionCue[];
+    sfxCues: SfxCue[];
+  };
+  settings: {
+    palette: string;
+    safeArea: {top: number; right: number; bottom: number; left: number};
+    audio: {narrationGain: number; h3MasterGain: number; sfxMasterGain: number};
+    captionStyle?: CaptionStyle;
+  };
+  provenance?: Record<string, unknown>;
+};
+
+export type ProjectSummary = {
+  id: string;
+  name: string;
+  width?: number;
+  height?: number;
+  durationMs?: number;
+  source: 'project' | 'example' | 'invalid';
+};
+
+export type LoadedProject = {
+  manifest: EditProject;
+  assetBaseUrl: string;
+};

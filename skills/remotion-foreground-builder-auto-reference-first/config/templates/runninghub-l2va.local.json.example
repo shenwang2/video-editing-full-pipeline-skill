@@ -1,0 +1,40 @@
+{
+  "generationMode": "L2VA",
+  "credentialConfig": "runninghub.local.json",
+  "workflowId": "2093996052545359873",
+  "workflowFile": "runninghub-l2va-workflow-api.json",
+  "defaults": {
+    "durationSeconds": null,
+    "seed": 42,
+    "fps": 24
+  },
+  "nodes": {
+    "lastImage": {
+      "nodeId": "14",
+      "fieldName": "image"
+    },
+    "duration": {
+      "nodeId": "13",
+      "fieldName": "value"
+    },
+    "prompt": {
+      "nodeId": "17",
+      "fieldName": "prompt"
+    },
+    "seed": {
+      "nodeId": "1",
+      "fieldName": "noise_seed"
+    },
+    "fps": {
+      "nodeId": "19",
+      "fieldName": "frame_rate"
+    },
+    "aspectRatio": {
+      "nodeId": "16",
+      "fieldName": "aspect_ratio"
+    },
+    "output": {
+      "nodeId": "19"
+    }
+  }
+}

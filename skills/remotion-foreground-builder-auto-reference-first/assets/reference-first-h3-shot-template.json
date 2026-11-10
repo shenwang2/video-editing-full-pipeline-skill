@@ -1,0 +1,184 @@
+{
+  "schemaVersion": 3,
+  "id": "h3-knowledge-001",
+  "sourceAnchor": {
+    "startMs": 0,
+    "endMs": 7000,
+    "text": "Exact spoken clause covered by this shot."
+  },
+  "route": "MINIMAX_H3",
+  "templateId": "T21",
+  "motionPattern": "M03",
+  "motionPatternContract": {
+    "relationshipType": "many-to-one",
+    "relationshipStatement": "Several visible inputs are assembled into one coherent result.",
+    "selectionRationale": "M03 is selected because the meaning is many inputs becoming one result, not one source splitting into many outputs.",
+    "primaryLawEn": "Keep one destination stable while the inputs enter in a readable order and become one completed result.",
+    "triggerEn": "A visible submission or locking action starts the assembly.",
+    "attentionPathEn": "Move attention from the first input through the remaining inputs and finish on the single result.",
+    "resultProofEn": "The final frame contains one stable assembled result and no unprocessed input remains."
+  },
+  "styleBranch": "editorial-paper-collage",
+  "generationMode": "I2VA",
+  "durationSeconds": 7,
+  "durationPlan": {
+    "schemaVersion": 1,
+    "shotId": "h3-knowledge-001",
+    "decisionStatus": "ready",
+    "durationClass": "short-sequence",
+    "strongEventCount": 3,
+    "strongEvents": [
+      {"label": "first input enters", "narrationAtMs": 1800},
+      {"label": "remaining inputs assemble", "narrationAtMs": 3600},
+      {"label": "one result locks", "narrationAtMs": 5600}
+    ],
+    "narrationSpanSeconds": 7.0,
+    "motionPattern": "M03",
+    "motionPatternRangeSeconds": [7.0, 9.0],
+    "selectedDurationSeconds": 7,
+    "directFitDeltaSeconds": 0.0,
+    "directFitRatio": 1.0,
+    "selectionRationale": "Three strong visible events form a short many-to-one sequence that fits the seven-second narration clause directly.",
+    "retimePolicy": {
+      "role": "fine-adjustment-only",
+      "maxPlaybackRateDelta": 0.1,
+      "maxHoldSeconds": 0.8,
+      "regenerateBeyondBudget": true
+    }
+  },
+  "aspectRatio": "16:9",
+  "placement": "fullscreen",
+  "workflowResolutionPolicy": "native",
+  "knowledgePoint": "The exact spoken idea that benefits from a concrete visual treatment.",
+  "viewerInference": "What the viewer should understand after the shot.",
+  "routeReason": "The specific comprehension, emotional, or memory benefit alongside retained foreground.",
+  "startStateEn": "One observable starting state with the approved subjects and object count.",
+  "causalActionEn": "The central meaningful action, interaction, or reveal; describe causality only when the spoken idea is causal.",
+  "resultStateEn": "The final readable state or relationship; physical transformation is not required.",
+  "referenceContract": [
+    {
+      "assetId": "365e65b2876b",
+      "library": "starter",
+      "roles": ["C", "M"],
+      "usage": "mechanism-metadata",
+      "borrow": "The empty grid, ordered module assembly, and stable completed state.",
+      "doNotCopy": "Demo wording, exact layout, colors, logos, or source content identity."
+    }
+  ],
+  "currentShotReference": {
+    "path": "h3-knowledge-001-first-2K.png",
+    "role": "first-frame",
+    "purpose": "A current-shot-specific 2048x1152 visual solution for the actual subject, composition, material hierarchy, and opening state."
+  },
+  "firstFrame": {
+    "path": "h3-knowledge-001-first-2K.png",
+    "state": "The clean original starting state, without text or UI.",
+    "continuityLocks": ["same subjects", "same object count", "same palette", "same camera"],
+    "allowedMotionEn": "Only the named causal objects may move away from this exact opening state."
+  },
+  "lastFrame": {
+    "path": "",
+    "state": "",
+    "continuityLocks": [],
+    "arrivalRulesEn": ""
+  },
+  "endpointTransitionEn": "",
+  "referenceImage": {
+    "path": "",
+    "currentShotReference": false,
+    "purpose": "For Ref2VA only: the current-shot-specific content, layout, subject, and style reference; it is not an endpoint.",
+    "doNotCopy": "Nothing from the current shot; preserve its intended subject and spatial hierarchy while omitting baked-in text or UI."
+  },
+  "referenceImage2": {
+    "path": "",
+    "currentShotReference": false,
+    "purpose": "For Ref2VA only: one complementary palette, material, or composition mechanism that does not duplicate Picture 1.",
+    "doNotCopy": "Reference wording, brand, logo, character identity, exact layout, or unrelated content."
+  },
+  "referenceVideo": {
+    "path": "",
+    "purpose": "For Ref2VA only: the selected motion law, attention path, camera behavior, depth behavior, and settling rhythm.",
+    "doNotCopy": "Reference subject identity, brand, wording, storyline, soundtrack, or unrelated content.",
+    "sourceFrom": 0.0,
+    "sourceTo": 5.0,
+    "motionBeats": [
+      {
+        "from": 0.0,
+        "to": 0.8,
+        "mechanismEn": "Establish the source subject and its available destinations.",
+        "mapsToPhase": 0
+      },
+      {
+        "from": 0.8,
+        "to": 3.8,
+        "mechanismEn": "Carry the selected motion law through the visible causal transformation.",
+        "mapsToPhase": 1
+      },
+      {
+        "from": 3.8,
+        "to": 5.0,
+        "mechanismEn": "Decelerate into the stable result and hold the attention endpoint.",
+        "mapsToPhase": 2
+      }
+    ]
+  },
+  "visualStyleEn": "A coherent original explanatory visual with tactile material, controlled hierarchy, and no baked-in text.",
+  "initialCompositionEn": "A clean 16:9 composition with one central mechanism and controlled negative space.",
+  "cropSafetyEn": "Keep every essential subject, causal action, and final-state cue inside the central crop-safe region; only expendable context may sit near the left and right edges.",
+  "subjectContinuityEn": "Preserve approved subject identity, object count, palette, material, and spatial relationships throughout the shot.",
+  "phases": [
+    {
+      "role": "establish",
+      "from": 0.0,
+      "to": 0.7,
+      "subjectEn": "The approved source objects",
+      "actionEn": "remain still in the exact opening composition",
+      "outcomeEn": "the starting relationship becomes immediately readable",
+      "narrationAnchorText": "setup clause",
+      "narrationAtMs": 0
+    },
+    {
+      "role": "transform",
+      "from": 0.7,
+      "to": 5.8,
+      "subjectEn": "The named causal objects",
+      "actionEn": "perform the single motion law in a clear ordered progression",
+      "outcomeEn": "the viewer can follow exactly how the relationship changes",
+      "narrationAnchorText": "causal verb or clause",
+      "narrationAtMs": 3000
+    },
+    {
+      "role": "result-hold",
+      "from": 5.8,
+      "to": 7.0,
+      "subjectEn": "Every transformed object",
+      "actionEn": "settles and stops at its final destination",
+      "outcomeEn": "the completed result remains stable and visually proves the point",
+      "narrationAnchorText": "result clause",
+      "narrationAtMs": 5800
+    }
+  ],
+  "cameraEn": "Use one restrained slow push-in during the causal action, then settle and remain locked.",
+  "endStateEn": "Reach the described result and hold it without drift for at least 0.6 seconds.",
+  "overallSoundscape": "Quiet synchronized tactile sounds only; no speech and no music.",
+  "nonDiegeticMusic": "N/A",
+  "onScreenText": [],
+  "exactTextRequired": false,
+  "foregroundCoexistence": {
+    "keepTitles": true,
+    "keepCaptions": true,
+    "retainedEventIds": [],
+    "readabilityTreatment": "localized-dark-gradient",
+    "duplicateAvoidance": "H3 provides a concrete scene or experience; Remotion retains useful labels, diagrams, structured knowledge, titles, captions, and material. Related meaning is valid when visual functions differ."
+  },
+  "avoid": [
+    "extra objects",
+    "pseudo-text",
+    "logos",
+    "watermarks",
+    "fake UI",
+    "camera spin",
+    "looping motion",
+    "early final-state reveal"
+  ]
+}

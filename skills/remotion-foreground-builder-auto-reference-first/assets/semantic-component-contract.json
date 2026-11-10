@@ -1,0 +1,1811 @@
+{
+  "schemaVersion": 3,
+  "status": "curation-complete",
+  "approvedRoomLightPalette": {
+    "粉红": "#FF5CCB",
+    "浅紫": "#C55BFF",
+    "青蓝": "#24E5EE",
+    "荧光绿": "#D8FF3F",
+    "亮红": "#FF4D55",
+    "深紫": "#8D42FF",
+    "电光蓝": "#3D5BFF"
+  },
+  "library": {
+    "name": "semantic-foreground-pack",
+    "sourcePath": "assets/semantic-foreground-pack/src",
+    "installPath": "src/semantic-foreground-pack",
+    "installer": "scripts/install-semantic-component-pack.py",
+    "legacyRouting": "hidden-for-new-cuts",
+    "semanticSlotCount": 24,
+    "componentCount": 24,
+    "layoutModel": "transparent-host-with-measured-local-large-surfaces-and-operation-demo-detail-takeover",
+    "sourceOwnership": {
+      "authoritativeSkill": "remotion-foreground-builder-auto-reference-first",
+      "consumers": [
+        "autonomous-render",
+        "remotion-talking-head-edit-desk"
+      ],
+      "editorMayOverrideComponentSource": false,
+      "editorMayChangeSemanticRoutingOrDefaultMotion": false,
+      "optionalEditParameters": "Shared source exposes no-op-by-default placement, element, and color controls; the editor serializes user choices only."
+    }
+  },
+  "source": {
+    "project": "RemotionUI",
+    "packageVersion": "0.9.0",
+    "license": "MIT",
+    "repository": "https://github.com/riaz37/remotion-ui",
+    "adaptation": "Selected source components are bundled locally. Imports are self-contained. RemotionUI scene styling and motion are adapted into transparent, measured talking-head foreground overlays; imported full-page scene backgrounds are removed. MediaFrame/show is restricted to local or large measured surfaces, while MediaFrame/recordedDemo is the sole real-object detail-takeover mode. LogoWall becomes a peer collection, KanbanMove becomes a spoken state transformation, FormFillSequence becomes a content-sized progressive spoken-step sequence, ComparisonBars is restricted to explicit same-unit numeric comparisons, and PricingCard becomes two equal conceptual-comparison cards without pricing or CTA semantics."
+  },
+  "routingPolicy": {
+    "semanticFirst": true,
+    "maxCandidateComponents": 1,
+    "allowLegacyFallbackForNewCuts": false,
+    "unselectedSlotPolicy": "leave-component-pending-without-routing-to-legacy",
+    "componentReuse": "allowed-when-modes-have-distinct-playback-and-layout-contracts",
+    "contentSizingPolicy": "text-support-and-peer-state-surfaces-derive-width-height-from-rendered-payload",
+    "primaryTypographyPolicy": "spoken-primary-information-remains-phone-readable-and-never-collapses-into-helper-type",
+    "cardCopyStructurePolicy": "label-and-two-to-five-unit-primary-inside-with-optional-small-auxiliary-outside",
+    "cardPrimaryMaxVisualUnits": 5,
+    "cardAuxiliaryPlacementPolicy": "outside-visible-card-surface-only",
+    "variantColorPolicy": "one-approved-chromatic-accent-per-visual-variant-with-neutral-surfaces-only",
+    "visibleSurfacePolicy": "measured-local-or-large-for-non-demo-with-recorded-demo-detail-takeover",
+    "transparentHostMaySpanComposition": true,
+    "fullScreenVisibleSurfaceAllowed": true,
+    "fullScreenTakeoverOwner": "H3-or-MediaFrame-recordedDemo-only"
+  },
+  "coreComponents": [
+    "MediaFrame",
+    "CalloutSpotlight",
+    "BRollStack",
+    "LogoWall",
+    "ComparisonBars",
+    "ConceptComparisonCards",
+    "KanbanMove",
+    "FormFillSequence",
+    "ChronologyTrack",
+    "CauseEffectChain",
+    "HierarchyTree",
+    "FlowCarrier",
+    "ProblemSolutionBridge",
+    "ConditionGate",
+    "FeedbackLoop",
+    "QuadrantMatrix",
+    "ImpactToken",
+    "InsightFocus",
+    "QuestionTension",
+    "WarningBoundary",
+    "DefinitionReveal",
+    "ResultLock",
+    "VerdictStamp",
+    "QuoteFrame"
+  ],
+  "extensionPacks": {},
+  "components": {
+    "MediaFrame": {
+      "visualFamily": "realObjectMedia",
+      "visualSignature": "framed-single-real-media-with-purpose-specific-playback",
+      "motionGrammars": [
+        "shutterOpenSlowPush",
+        "cleanLiftGlow",
+        "shutterOpenRecordedPlayback"
+      ],
+      "defaultVariant": "show",
+      "renderingContract": {
+        "host": "transparent-full-frame-coordinate-layer",
+        "visibleBounds": "show-is-measured-local-or-large-recordedDemo-is-detailTakeover",
+        "presentationScales": [
+          "local",
+          "large",
+          "detailTakeover"
+        ],
+        "presentationScalesByVariant": {
+          "show": [
+            "local",
+            "large"
+          ],
+          "cleanGlow": [
+            "local",
+            "large"
+          ],
+          "recordedDemo": [
+            "detailTakeover"
+          ]
+        },
+        "opaquePageBackground": false
+      },
+      "variants": {
+        "show": {
+          "label": "标准素材框",
+          "motionGrammar": "shutterOpenSlowPush",
+          "defaultPresentationScale": "large",
+          "mode": "show"
+        },
+        "cleanGlow": {
+          "label": "极简描边发光",
+          "motionGrammar": "cleanLiftGlow",
+          "defaultPresentationScale": "large",
+          "mode": "show"
+        },
+        "recordedDemo": {
+          "label": "操作演示全屏",
+          "motionGrammar": "shutterOpenRecordedPlayback",
+          "defaultPresentationScale": "detailTakeover",
+          "mode": "recordedDemo"
+        }
+      }
+    },
+    "CalloutSpotlight": {
+      "visualFamily": "realObjectFocus",
+      "visualSignature": "dim-iris-ping-connector-callout-on-real-target",
+      "motionGrammars": [
+        "irisPingConnector",
+        "dimCornerLock"
+      ],
+      "defaultVariant": "aimedCallout",
+      "renderingContract": {
+        "host": "transparent-full-frame-coordinate-layer",
+        "visibleBounds": "local-screenshot-panel-plus-local-callout",
+        "dimmingScope": "inside-local-screenshot-panel-only",
+        "opaquePageBackground": false
+      },
+      "variants": {
+        "aimedCallout": {
+          "label": "连线聚焦",
+          "optionalPayload": {
+            "labelAppearance": [
+              "card",
+              "plainAccent"
+            ],
+            "labelColor": "#RRGGBB"
+          },
+          "labelAppearanceContract": "card preserves the original default; plainAccent removes only the external label surface and uses the event accent color, preserving screenshot size, target mask and timing",
+          "motionGrammar": "irisPingConnector",
+          "mode": "focus"
+        },
+        "cornerFocus": {
+          "label": "角标聚焦",
+          "motionGrammar": "dimCornerLock",
+          "mode": "focus"
+        }
+      }
+    },
+    "BRollStack": {
+      "visualFamily": "realObjectProof",
+      "visualSignature": "sequential-proof-shots-shown-as-layered-deck-or-spatial-evidence-track",
+      "motionGrammars": [
+        "proofCardAdvance",
+        "evidenceTrackAdvance"
+      ],
+      "defaultVariant": "proofDeck",
+      "renderingContract": {
+        "host": "transparent-full-frame-coordinate-layer",
+        "visibleBounds": "local-or-large-proof-deck-or-horizontal-evidence-track-plus-compact-labels",
+        "opaquePageBackground": false
+      },
+      "variants": {
+        "proofDeck": {
+          "label": "叠卡翻页",
+          "motionGrammar": "proofCardAdvance",
+          "mode": "verify"
+        },
+        "evidenceTrack": {
+          "label": "证据轨道",
+          "motionGrammar": "evidenceTrackAdvance",
+          "mode": "verify"
+        }
+      }
+    },
+    "LogoWall": {
+      "visualFamily": "peerCollection",
+      "visualSignature": "spoken-peer-items-form-a-grid-or-magnetically-assemble-into-one-set",
+      "motionGrammars": [
+        "spokenTileArrivalThenDiagonalWarm",
+        "magneticPeerAssembly"
+      ],
+      "defaultVariant": "peerTileWall",
+      "renderingContract": {
+        "host": "transparent-full-frame-coordinate-layer",
+        "visibleBounds": "local-heading-plus-peer-tile-grid",
+        "opaquePageBackground": false,
+        "iconPolicy": {
+          "field": "items[].icon",
+          "vocabulary": "iconLibrary",
+          "missing": "omit icon surface; keep label",
+          "forbidden": "label initials, Chinese glyph badges, and text as fake icons",
+          "timing": "inherits peer item spoken entrance"
+        }
+      },
+      "variants": {
+        "peerTileWall": {
+          "label": "同级宫格",
+          "motionGrammar": "spokenTileArrivalThenDiagonalWarm",
+          "mode": "collection"
+        },
+        "magneticCluster": {
+          "label": "磁吸集合",
+          "motionGrammar": "magneticPeerAssembly",
+          "mode": "collection"
+        }
+      }
+    },
+    "ComparisonBars": {
+      "visualFamily": "numericComparison",
+      "visualSignature": "same-unit-before-after-values-shown-as-proportional-bars-or-a-directed-shift-rail",
+      "motionGrammars": [
+        "spokenPairGrowthThenDelta",
+        "beforeTravelAfterDelta"
+      ],
+      "defaultVariant": "numberDelta",
+      "renderingContract": {
+        "host": "transparent-full-frame-coordinate-layer",
+        "visibleBounds": "local-label-bar-delta-block",
+        "opaquePageBackground": false
+      },
+      "variants": {
+        "numberDelta": {
+          "label": "比例对比条",
+          "motionGrammar": "spokenPairGrowthThenDelta",
+          "mode": "comparison"
+        },
+        "metricShiftRail": {
+          "label": "数值跃迁轨",
+          "motionGrammar": "beforeTravelAfterDelta",
+          "mode": "comparison"
+        }
+      }
+    },
+    "ConceptComparisonCards": {
+      "visualFamily": "conceptualComparison",
+      "visualSignature": "two-concept-comparison-reveals-as-independent-cards-mirrored-attributes-or-paired-condition-to-outcome-rows",
+      "motionGrammars": [
+        "peerCardRevealThenAttributeBuild",
+        "mirroredHeadersThenPairedAttributes",
+        "pairedBranchRevealThenOutcome"
+      ],
+      "defaultVariant": "dualPeerCards",
+      "renderingContract": {
+        "host": "transparent-full-frame-coordinate-layer",
+        "visibleBounds": "local-two-card-comparison-block-or-two-branch-outcome-rows",
+        "surfaceSizing": "equal-peer-widths-with-card-height-derived-from-label-and-primary-only",
+        "primaryTypography": "phone-readable-structured-primary",
+        "copyStructure": "label-and-primary-inside-optional-small-auxiliary-outside",
+        "primaryTextPaths": [
+          "sides.*.title",
+          "sides.*.items.0.text"
+        ],
+        "auxiliaryTextPaths": [
+          "sides.*.label",
+          "sides.*.subtitle",
+          "sides.*.badge"
+        ],
+        "opaquePageBackground": false
+      },
+      "variants": {
+        "dualPeerCards": {
+          "label": "双卡概念对比",
+          "motionGrammar": "peerCardRevealThenAttributeBuild",
+          "mode": "comparison"
+        },
+        "neonMirrorCompare": {
+          "label": "霓虹镜像对照",
+          "motionGrammar": "mirroredHeadersThenPairedAttributes",
+          "mode": "comparison",
+          "palette": [
+            "青蓝"
+          ],
+          "colorMode": "single-accent"
+        },
+        "branchOutcomeRows": {
+          "label": "条件结果双分支",
+          "motionGrammar": "pairedBranchRevealThenOutcome",
+          "connectorGeometry": "two-independent-straight-dashed-segments-with-endpoint-dots",
+          "mode": "comparison",
+          "palette": [
+            "#4DB6FF",
+            "#F6BE62"
+          ],
+          "colorMode": "reviewed-branch-pair-with-editor-unify-override",
+          "stableEditableSurfaces": [
+            "branch-condition.1",
+            "branch-result.1",
+            "branch-condition.2",
+            "branch-result.2"
+          ],
+          "status": "approved",
+          "connectorDashPatternAt2560x1440": {
+            "dashPx": 9,
+            "gapPx": 13,
+            "lineCap": "round"
+          },
+          "useWhen": "Exactly two contrasting or mutually exclusive conditions each map to exactly one grounded short outcome, such as matched/unmatched, present/absent, success/failure, or eligible/ineligible.",
+          "doNotUseWhen": "The two sides are independent summaries, matched-dimension attribute lists, several criteria resolving one gate, a state that later becomes a result, or a causal mechanism.",
+          "required": [
+            "sides",
+            "placement"
+          ],
+          "payload": {
+            "sides": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "itemRequired": [
+                "title",
+                "items"
+              ],
+              "itemTimingRequiredOneOf": [
+                "showAtMs",
+                "showAtInFrames"
+              ],
+              "itemRules": {
+                "items": {
+                  "type": "array",
+                  "minItems": 1,
+                  "maxItems": 1,
+                  "itemRequired": [
+                    "text"
+                  ],
+                  "itemTimingRequiredOneOf": [
+                    "showAtMs",
+                    "showAtInFrames"
+                  ]
+                },
+                "label": "optional-routing-metadata-not-visible-by-default"
+              }
+            }
+          },
+          "defaultPalette": [
+            "#4DB6FF",
+            "#F6BE62"
+          ],
+          "colorOverrideBehavior": "The reviewed default keeps blue and gold as the two branch accents. A whole-component accentColor intentionally unifies both branches; a stable-card color override recolors only that condition or outcome and its derived connector.",
+          "invariants": [
+            "preserve-exactly-two-source-ordered-branches",
+            "each-condition-and-outcome-keeps-its-own-spoken-anchor",
+            "an-outcome-never-appears-before-its-condition",
+            "each-branch-maps-to-exactly-one-grounded-short-outcome",
+            "condition-and-outcome-remain-primary-not-helper-typography",
+            "the-row-frame-expands-before-the-outcome-locks-in",
+            "two-independent-straight-dashed-connectors-and-endpoint-dots-derive-from-their-own-current-editable-surface-bounds",
+            "preserve-the-approved-656-by-252-reference-envelope-at-2560-by-1440-for-the-reviewed-payload",
+            "never-invent-a-winner-causality-or-gate-resolution"
+          ],
+          "reviewedReference": "assets/classic-variant-previews/concept-comparison-branch-outcome-rows.png"
+        }
+      }
+    },
+    "KanbanMove": {
+      "visualFamily": "stateTransformation",
+      "visualSignature": "carrier-lifts-from-old-state-and-settles-in-new-state",
+      "motionGrammars": [
+        "carrierArcStateTransfer",
+        "carrierPortalStateTransfer"
+      ],
+      "defaultVariant": "stateTransfer",
+      "renderingContract": {
+        "host": "transparent-full-frame-coordinate-layer",
+        "visibleBounds": "local-two-or-three-state-board",
+        "opaquePageBackground": false
+      },
+      "variants": {
+        "stateTransfer": {
+          "label": "状态转移看板",
+          "motionGrammar": "carrierArcStateTransfer"
+        },
+        "statePortal": {
+          "label": "状态跃迁门",
+          "motionGrammar": "carrierPortalStateTransfer",
+          "palette": [
+            "电光蓝"
+          ],
+          "colorMode": "single-accent"
+        }
+      }
+    },
+    "FormFillSequence": {
+      "visualFamily": "orderedSequence",
+      "visualSignature": "spoken-step-cards-active-dominant-state-rail-or-compact-top-down-explanation-stack",
+      "motionGrammars": [
+        "spokenStepFocusThenValidate",
+        "activeDominantPriorRetainedRail",
+        "compactTopDownListHandoff"
+      ],
+      "defaultVariant": "spokenSteps",
+      "renderingContract": {
+        "host": "transparent-full-frame-coordinate-layer",
+        "visibleBounds": "variant-resolved-content-envelope-shared-by-renderer-and-editor",
+        "defaultLayoutMode": "progressiveStack",
+        "opaquePageBackground": false
+      },
+      "variants": {
+        "spokenSteps": {
+          "label": "口播步骤卡",
+          "motionGrammar": "spokenStepFocusThenValidate",
+          "defaultLayoutMode": "progressiveStack"
+        },
+        "stepRail": {
+          "label": "阶梯推进轨",
+          "motionGrammar": "activeDominantPriorRetainedRail",
+          "statePolicy": "active-dominant-prior-retained-future-muted",
+          "stepCount": {
+            "min": 2,
+            "max": 5
+          },
+          "payloadContract": {
+            "required": [
+              "steps"
+            ],
+            "optional": [
+              "title",
+              "titleEmphasis",
+              "eyebrow",
+              "resultLabel"
+            ],
+            "stepRequired": [
+              "label",
+              "showAtInFrames"
+            ],
+            "stepOptional": [
+              "meta",
+              "detail",
+              "icon",
+              "completeAtInFrames"
+            ],
+            "iconVocabulary": "SEMANTIC_ICON_NAMES"
+          },
+          "stableEditableSurfaces": [
+            "sequence-step.1",
+            "sequence-step.2",
+            "sequence-step.3",
+            "sequence-step.4",
+            "sequence-step.5"
+          ],
+          "palette": [
+            "青蓝"
+          ],
+          "colorMode": "single-accent",
+          "status": "approved",
+          "useWhen": "Two to five source-ordered instructions, explanation points, conclusions, or guidance form one progressive route; future steps are useful muted context while the current step dominates.",
+          "doNotUseWhen": "The content is a static list, a causal chain, a chronology, a carrier moving through locations, or an unordered peer collection. Use spokenSteps when simple spoken reveal and validation is sufficient.",
+          "required": [
+            "steps",
+            "placement"
+          ],
+          "optional": [
+            "title",
+            "titleEmphasis",
+            "eyebrow",
+            "resultLabel"
+          ],
+          "payload": {
+            "steps": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 5,
+              "itemRequired": [
+                "label"
+              ],
+              "itemTimingRequiredOneOf": [
+                "showAtMs",
+                "showAtInFrames"
+              ],
+              "itemOptional": [
+                "detail",
+                "meta",
+                "icon",
+                "completeAtMs",
+                "completeAtInFrames"
+              ],
+              "recommendedForReferenceFidelity": [
+                "meta",
+                "icon"
+              ],
+              "iconVocabulary": "SEMANTIC_ICON_NAMES"
+            }
+          },
+          "legacyFallbacks": {
+            "meta": "detail-or-generated-step-index",
+            "icon": "workflow-for-intermediate-steps-and-check-for-the-final-step"
+          },
+          "invariants": [
+            "preserve-source-order-and-event-local-spoken-anchors",
+            "do-not-store-parallel-labels-and-beats-arrays",
+            "do-not-copy-reference-specific-product-words-or-absolute-timeline-times",
+            "the-current-step-is-dominant-prior-steps-remain-readable-and-future-steps-stay-muted",
+            "the-active-index-advances-only-at-the-next-step-spoken-anchor",
+            "each-step-icon-comes-only-from-the-finite-semantic-svg-vocabulary",
+            "renderer-editor-selection-and-inner-step-overrides-share-one-stable-expanded-envelope"
+          ],
+          "reviewedReference": "foreground-grammar-blind-test-v2-20260907/installStateBoard"
+        },
+        "compactExplanationStack": {
+          "label": "收束·紧凑说明栈",
+          "motionGrammar": "compactTopDownListHandoff",
+          "statePolicy": "current-dominant-prior-muted-future-hidden",
+          "rowCheckMotion": {
+            "position": "inside-card-right-end",
+            "trigger": "step-show-anchor-plus-0.2-seconds",
+            "drawDurationSeconds": 0.32,
+            "visualTreatment": "small-outline-circle-with-thin-check; simple-check-draw-only; no-cut-corners-scan-bounce-or-glow",
+            "behavior": "draw-once-then-retain-with-row; prior-row-checks-follow-existing-muted-state",
+            "meaning": "presentation-acknowledgement-only; does-not-change-completeAt-or-active-step-timing",
+            "color": "inherit-isolated-card-accent",
+            "geometry": "reserve-108-unit-text-right-inset; keep-existing-expanded-row-bounds"
+          },
+          "stepCount": {
+            "min": 2,
+            "max": 5
+          },
+          "payloadContract": {
+            "required": [
+              "steps"
+            ],
+            "optional": [
+              "title",
+              "titleEmphasis",
+              "eyebrow",
+              "resultLabel"
+            ],
+            "stepRequired": [
+              "label",
+              "showAtInFrames"
+            ],
+            "stepOptional": [
+              "meta",
+              "detail",
+              "icon",
+              "completeAtInFrames"
+            ]
+          },
+          "stableEditableSurfaces": [
+            "sequence-step.1",
+            "sequence-step.2",
+            "sequence-step.3",
+            "sequence-step.4",
+            "sequence-step.5"
+          ],
+          "palette": [
+            "电光蓝"
+          ],
+          "colorMode": "single-accent",
+          "status": "approved",
+          "useWhen": "Two to five source-ordered steps should be revealed as a compact top-down list. The steps may be instructions, explanation points, conclusions, or guidance; each new spoken step becomes dominant while earlier steps remain as muted context.",
+          "doNotUseWhen": "The items are unordered peers, explicit chronology, or one carrier moving through locations. Use stepRail when future steps should remain visibly previewed and an action motif is useful; use spokenSteps when reveal-and-validation cards are preferred.",
+          "required": [
+            "steps",
+            "placement"
+          ],
+          "optional": [
+            "title",
+            "titleEmphasis",
+            "eyebrow",
+            "resultLabel"
+          ],
+          "payload": {
+            "steps": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 5,
+              "itemRequired": [
+                "label"
+              ],
+              "itemTimingRequiredOneOf": [
+                "showAtMs",
+                "showAtInFrames"
+              ],
+              "itemOptional": [
+                "detail",
+                "meta",
+                "icon",
+                "completeAtMs",
+                "completeAtInFrames"
+              ]
+            }
+          },
+          "legacyFallbacks": {
+            "meta": "detail-or-generated-step-index"
+          },
+          "invariants": [
+            "preserve-source-order-and-event-local-spoken-anchors",
+            "do-not-store-parallel-labels-and-beats-arrays",
+            "unspoken-steps-remain-absent-and-occupy-no-visible-space",
+            "the-current-step-is-dominant-and-prior-steps-remain-readable-but-muted",
+            "the-active-index-advances-only-at-the-next-step-spoken-anchor",
+            "do-not-require-an-operational-action-type-for-a-step",
+            "renderer-editor-selection-and-inner-step-overrides-share-one-stable-expanded-envelope"
+          ],
+          "reviewedReference": "foreground-grammar-blind-test-v3-20260907/runningHubEditorial"
+        }
+      }
+    },
+    "ChronologyTrack": {
+      "visualFamily": "chronologicalDevelopment",
+      "visualSignature": "dated-milestones-reveal-on-one-continuous-time-axis",
+      "motionGrammars": [
+        "spokenMilestoneThenTrackAdvance",
+        "pulseRailMilestoneReveal"
+      ],
+      "defaultVariant": "datedMilestones",
+      "renderingContract": {
+        "host": "transparent-full-frame-coordinate-layer",
+        "visibleBounds": "local-horizontal-time-track",
+        "opaquePageBackground": false
+      },
+      "variants": {
+        "datedMilestones": {
+          "label": "日期里程碑",
+          "motionGrammar": "spokenMilestoneThenTrackAdvance"
+        },
+        "pulseTrack": {
+          "label": "脉冲时间轨",
+          "motionGrammar": "pulseRailMilestoneReveal",
+          "palette": [
+            "电光蓝"
+          ],
+          "colorMode": "single-accent"
+        }
+      }
+    },
+    "CauseEffectChain": {
+      "visualFamily": "causalExplanation",
+      "visualSignature": "cause-mechanism-effect-reveal-in-information-direction",
+      "motionGrammars": [
+        "causeMechanismEffectHandoff",
+        "causalEnergyTrigger"
+      ],
+      "defaultVariant": "causalHandoff",
+      "renderingContract": {
+        "host": "transparent-full-frame-coordinate-layer",
+        "visibleBounds": "local-causal-chain",
+        "surfaceSizing": "node-card-height-derived-from-label-and-primary-only",
+        "primaryTypography": "phone-readable-structured-primary",
+        "copyStructure": "label-and-primary-inside-optional-small-auxiliary-outside",
+        "primaryTextPaths": [
+          "cause.title",
+          "mechanism.title",
+          "effect.title"
+        ],
+        "auxiliaryTextPaths": [
+          "cause.detail",
+          "mechanism.detail",
+          "effect.detail"
+        ],
+        "opaquePageBackground": false
+      },
+      "variants": {
+        "causalHandoff": {
+          "label": "因果交接链",
+          "motionGrammar": "causeMechanismEffectHandoff"
+        },
+        "energyChain": {
+          "label": "因果能量链",
+          "motionGrammar": "causalEnergyTrigger",
+          "palette": [
+            "深紫"
+          ],
+          "colorMode": "single-accent"
+        }
+      }
+    },
+    "HierarchyTree": {
+      "visualFamily": "parentChildHierarchy",
+      "visualSignature": "balanced-or-radial-parent-child-tree-or-icon-led-categories-converging-into-one-explicit-library",
+      "motionGrammars": [
+        "rootBranchThenSpokenChildren",
+        "radialHubBranchReveal",
+        "staggeredIconCategoriesThenLibrary"
+      ],
+      "defaultVariant": "balancedTree",
+      "renderingContract": {
+        "host": "transparent-full-frame-coordinate-layer",
+        "visibleBounds": "local-symmetric-tree-or-icon-classification-library",
+        "surfaceSizing": "equal-child-card-height-derived-from-label-and-primary-only",
+        "primaryTypography": "phone-readable-structured-primary",
+        "copyStructure": "label-and-primary-inside-optional-small-auxiliary-outside",
+        "primaryTextPaths": [
+          "rootTitle",
+          "children.*.title",
+          "categoryItems.*.label",
+          "summary.label",
+          "summary.count"
+        ],
+        "auxiliaryTextPaths": [
+          "children.*.detail"
+        ],
+        "opaquePageBackground": false
+      },
+      "variants": {
+        "balancedTree": {
+          "label": "平衡层级树",
+          "motionGrammar": "rootBranchThenSpokenChildren"
+        },
+        "radialHub": {
+          "label": "中枢辐射树",
+          "motionGrammar": "radialHubBranchReveal",
+          "connectorStyle": "subtle-dashed",
+          "palette": [
+            "深紫"
+          ],
+          "colorMode": "single-accent"
+        },
+        "iconClassification": {
+          "label": "图标分类汇聚",
+          "motionGrammar": "staggeredIconCategoriesThenLibrary",
+          "iconLibrary": "lib/semantic-icons.tsx",
+          "required": [
+            "categoryItems",
+            "summary",
+            "placement"
+          ],
+          "timingPolicy": "preserve-source-order-and-enforce-perceptible-minimum-visual-stagger",
+          "status": "approved",
+          "useWhen": "Two to four named conceptual categories converge into one explicit taxonomy, library, catalog, or grounded total.",
+          "doNotUseWhen": "The content is only a flat peer collection, or an ordinary root-to-child tree without a converging taxonomy/library summary.",
+          "payload": {
+            "categoryItems": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 4,
+              "itemRequired": [
+                "label",
+                "icon",
+                "showAtInFrames"
+              ]
+            },
+            "summary": {
+              "type": "object",
+              "required": [
+                "label",
+                "icon",
+                "showAtInFrames"
+              ],
+              "optional": [
+                "count"
+              ]
+            }
+          },
+          "invariants": [
+            "preserve-category-source-order",
+            "keep-first-grounded-anchor",
+            "enforce-a-short-perceptible-minimum-visual-stagger-when-anchors-are-nearly-simultaneous",
+            "summary-builds-only-after-the-final-category-begins",
+            "summary-count-is-grounded-and-never-invented",
+            "preserve-the-approved-reference-geometry-and-visible-envelope"
+          ]
+        }
+      }
+    },
+    "FlowCarrier": {
+      "visualFamily": "objectFlow",
+      "visualSignature": "one-labeled-carrier-travels-through-spoken-stages",
+      "motionGrammars": [
+        "carrierTravelsThenStageLocks",
+        "carrierRelayRoute",
+        "carrierPassesProcessingPods"
+      ],
+      "defaultVariant": "stageTransfer",
+      "renderingContract": {
+        "host": "transparent-full-frame-coordinate-layer",
+        "visibleBounds": "local-flow-track",
+        "opaquePageBackground": false
+      },
+      "variants": {
+        "stageTransfer": {
+          "label": "流程接力轨",
+          "motionGrammar": "carrierRelayRoute",
+          "connectorStyle": "subtle-dashed",
+          "palette": [
+            "电光蓝"
+          ],
+          "colorMode": "single-accent"
+        },
+        "processingPods": {
+          "label": "处理舱流水线",
+          "motionGrammar": "carrierPassesProcessingPods",
+          "connectorStyle": "subtle-dashed",
+          "palette": [
+            "青蓝"
+          ],
+          "colorMode": "single-accent"
+        }
+      }
+    },
+    "ProblemSolutionBridge": {
+      "visualFamily": "problemSolution",
+      "visualSignature": "problem-state-action-bridge-solution-state",
+      "motionGrammars": [
+        "problemActionSolutionHandoff",
+        "problemPassesActionBecomesSolution"
+      ],
+      "defaultVariant": "actionBridge",
+      "renderingContract": {
+        "host": "transparent-full-frame-coordinate-layer",
+        "visibleBounds": "master-edge-aligned-content-sized-two-state-bridge",
+        "surfaceSizing": "equal-peer-widths-with-card-height-derived-from-label-and-primary-only",
+        "primaryTypography": "phone-readable-structured-primary",
+        "copyStructure": "label-and-primary-inside-optional-small-auxiliary-outside",
+        "primaryTextPaths": [
+          "problem.title",
+          "solution.title",
+          "actionLabel"
+        ],
+        "auxiliaryTextPaths": [
+          "problem.detail",
+          "solution.detail"
+        ],
+        "supportedLayoutModes": [
+          "standard",
+          "subjectSplit"
+        ],
+        "opaquePageBackground": false
+      },
+      "variants": {
+        "actionBridge": {
+          "motionGrammar": "problemActionSolutionHandoff"
+        },
+        "transformChamber": {
+          "label": "解法转换舱",
+          "motionGrammar": "problemPassesActionBecomesSolution",
+          "connectorStyle": "subtle-dashed",
+          "palette": [
+            "深紫"
+          ],
+          "colorMode": "single-accent"
+        }
+      }
+    },
+    "ConditionGate": {
+      "visualFamily": "conditionBoundary",
+      "visualSignature": "criteria-validate-gate-opens-or-remains-closed",
+      "motionGrammars": [
+        "criteriaValidateThenGateResolve",
+        "conditionKeysUnlockGate"
+      ],
+      "defaultVariant": "validationGate",
+      "renderingContract": {
+        "host": "transparent-full-frame-coordinate-layer",
+        "visibleBounds": "local-condition-gate",
+        "opaquePageBackground": false
+      },
+      "variants": {
+        "validationGate": {
+          "motionGrammar": "criteriaValidateThenGateResolve"
+        },
+        "keyGate": {
+          "label": "条件钥匙门",
+          "motionGrammar": "conditionKeysUnlockGate",
+          "connectorStyle": "subtle-dashed",
+          "palette": [
+            "青蓝"
+          ],
+          "colorMode": "single-accent"
+        }
+      }
+    },
+    "FeedbackLoop": {
+      "visualFamily": "feedbackCycle",
+      "visualSignature": "spoken-stages-close-a-directional-loop-around-one-result",
+      "motionGrammars": [
+        "stageCycleReturnsToOrigin",
+        "dashedReturnBandRunner"
+      ],
+      "defaultVariant": "closedCycle",
+      "renderingContract": {
+        "host": "transparent-full-frame-coordinate-layer",
+        "visibleBounds": "local-elliptical-feedback-loop",
+        "opaquePageBackground": false
+      },
+      "variants": {
+        "closedCycle": {
+          "motionGrammar": "stageCycleReturnsToOrigin"
+        },
+        "returnLoopBand": {
+          "label": "回流闭环带",
+          "motionGrammar": "dashedReturnBandRunner",
+          "connectorStyle": "subtle-dashed",
+          "palette": [
+            "荧光绿"
+          ],
+          "colorMode": "single-accent"
+        }
+      }
+    },
+    "QuadrantMatrix": {
+      "visualFamily": "twoDimensionalClassification",
+      "visualSignature": "two-axes-four-labelled-zones-and-positioned-items",
+      "motionGrammars": [
+        "axesQuadrantsThenItemPlacement",
+        "magneticDecisionPlacement"
+      ],
+      "defaultVariant": "fourQuadrants",
+      "renderingContract": {
+        "host": "transparent-full-frame-coordinate-layer",
+        "visibleBounds": "local-two-axis-quadrant-matrix",
+        "opaquePageBackground": false
+      },
+      "variants": {
+        "fourQuadrants": {
+          "motionGrammar": "axesQuadrantsThenItemPlacement"
+        },
+        "magneticDecisionBoard": {
+          "label": "磁吸决策盘",
+          "motionGrammar": "magneticDecisionPlacement",
+          "connectorStyle": "subtle-dashed",
+          "palette": [
+            "电光蓝"
+          ],
+          "colorMode": "single-accent"
+        }
+      }
+    },
+    "ImpactToken": {
+      "visualFamily": "memoryKeywordNumber",
+      "visualSignature": "one-load-bearing-word-or-number-lands-as-the-local-focal-memory-beat",
+      "motionGrammars": [
+        "outlineToAccentImpact",
+        "countRingUnitLock",
+        "beaconRailColorLock"
+      ],
+      "defaultVariant": "keywordImpact",
+      "renderingContract": {
+        "host": "transparent-full-frame-coordinate-layer",
+        "visibleBounds": "local-word-or-number-block",
+        "opaquePageBackground": false
+      },
+      "variants": {
+        "keywordImpact": {
+          "label": "关键词冲击",
+          "motionGrammar": "outlineToAccentImpact",
+          "mode": "keyword"
+        },
+        "numberLanding": {
+          "label": "数字落点",
+          "motionGrammar": "countRingUnitLock",
+          "mode": "number"
+        },
+        "focusBeacon": {
+          "label": "焦点信标",
+          "motionGrammar": "beaconRailColorLock",
+          "mode": "keyword",
+          "palette": [
+            "粉红"
+          ],
+          "colorMode": "single-accent"
+        }
+      }
+    },
+    "InsightFocus": {
+      "visualFamily": "memoryClaimInsight",
+      "visualSignature": "quiet-setup-recedes-while-one-load-bearing-insight-lands",
+      "motionGrammars": [
+        "setupThenHeadlineColorShift",
+        "setupThenSpotlightThesis",
+        "quietLeadThenFocusedWordsSettle"
+      ],
+      "defaultVariant": "claimLanding",
+      "renderingContract": {
+        "host": "transparent-full-frame-coordinate-layer",
+        "visibleBounds": "local-setup-headline-payoff-block",
+        "opaquePageBackground": false
+      },
+      "variants": {
+        "claimLanding": {
+          "motionGrammar": "setupThenHeadlineColorShift"
+        },
+        "spotlightThesis": {
+          "label": "结论聚光标",
+          "motionGrammar": "setupThenSpotlightThesis",
+          "palette": [
+            "电光蓝"
+          ],
+          "colorMode": "single-accent"
+        },
+        "statementFocus": {
+          "label": "重点落字",
+          "motionGrammar": "quietLeadThenFocusedWordsSettle",
+          "palette": [
+            "青蓝"
+          ],
+          "colorMode": "single-accent",
+          "renderingContract": {
+            "surfaceSizing": "measured-typographic-rows-without-fixed-rail-or-card",
+            "primaryTextPaths": [
+              "headline"
+            ],
+            "highlightPolicy": "one-verbatim-substring-with-short-local-underline",
+            "optionalCopy": [
+              "setup",
+              "payoff"
+            ]
+          }
+        }
+      }
+    },
+    "QuestionTension": {
+      "visualFamily": "memoryQuestion",
+      "visualSignature": "question-arc-and-open-punctuation-hold-an-unresolved-doubt",
+      "motionGrammars": [
+        "arcThenQuestionHold",
+        "openBracketQuestionPulse"
+      ],
+      "defaultVariant": "openQuestion",
+      "renderingContract": {
+        "host": "transparent-full-frame-coordinate-layer",
+        "visibleBounds": "local-question-block",
+        "opaquePageBackground": false
+      },
+      "variants": {
+        "openQuestion": {
+          "motionGrammar": "arcThenQuestionHold"
+        },
+        "suspenseGap": {
+          "label": "悬念缺口框",
+          "motionGrammar": "openBracketQuestionPulse",
+          "palette": [
+            "浅紫"
+          ],
+          "colorMode": "single-accent"
+        }
+      }
+    },
+    "WarningBoundary": {
+      "visualFamily": "memoryRiskWarning",
+      "visualSignature": "local-boundary-closes-and-a-separate-prohibition-symbol-blocks-the-risk",
+      "motionGrammars": [
+        "boundaryCloseThenProhibit",
+        "riskRailThenLock"
+      ],
+      "defaultVariant": "blockedRisk",
+      "renderingContract": {
+        "host": "transparent-full-frame-coordinate-layer",
+        "visibleBounds": "local-warning-boundary-card",
+        "surfaceSizing": "width-and-height-derived-from-label-and-primary-warning-only",
+        "primaryTypography": "warning-primary-remains-phone-readable",
+        "copyStructure": "label-and-primary-inside-optional-small-auxiliary-outside",
+        "primaryTextPaths": [
+          "warning"
+        ],
+        "auxiliaryTextPaths": [
+          "lead"
+        ],
+        "opaquePageBackground": false
+      },
+      "variants": {
+        "blockedRisk": {
+          "motionGrammar": "boundaryCloseThenProhibit"
+        },
+        "riskLock": {
+          "label": "风险锁止条",
+          "motionGrammar": "riskRailThenLock",
+          "palette": [
+            "亮红"
+          ],
+          "colorMode": "single-accent"
+        }
+      }
+    },
+    "DefinitionReveal": {
+      "visualFamily": "memoryDefinition",
+      "visualSignature": "local-bracket-locks-the-term-before-its-grounded-meaning-unfolds",
+      "motionGrammars": [
+        "bracketTermThenMeaning",
+        "termCardConnectThenDecode"
+      ],
+      "defaultVariant": "termMeaning",
+      "renderingContract": {
+        "host": "transparent-full-frame-coordinate-layer",
+        "visibleBounds": "local-term-and-definition-block",
+        "opaquePageBackground": false
+      },
+      "variants": {
+        "termMeaning": {
+          "motionGrammar": "bracketTermThenMeaning"
+        },
+        "termDecoder": {
+          "label": "概念解码器",
+          "motionGrammar": "termCardConnectThenDecode",
+          "palette": [
+            "青蓝"
+          ],
+          "colorMode": "single-accent"
+        }
+      }
+    },
+    "ResultLock": {
+      "visualFamily": "memoryStatusResult",
+      "visualSignature": "grounded-status-card-persists-while-the-spoken-result-card-locks-in-beside-it",
+      "motionGrammars": [
+        "statusProgressThenResultLock",
+        "persistentDualStateDock"
+      ],
+      "defaultVariant": "statusToResult",
+      "renderingContract": {
+        "host": "transparent-full-frame-coordinate-layer",
+        "visibleBounds": "local-persistent-status-and-result-peer-cards",
+        "surfaceSizing": "two-equal-content-sized-peer-cards-derived-from-the-larger-label-and-primary-payload",
+        "primaryTypography": "status-and-result-remain-primary-not-helper-type",
+        "copyStructure": "label-and-primary-inside-optional-small-auxiliary-outside",
+        "primaryTextPaths": [
+          "pendingText",
+          "resultText"
+        ],
+        "auxiliaryTextPaths": [
+          "pendingDetail",
+          "resultDetail"
+        ],
+        "opaquePageBackground": false
+      },
+      "variants": {
+        "statusToResult": {
+          "motionGrammar": "statusProgressThenResultLock",
+          "statePersistence": "pending-card-remains-while-result-card-enters-beside-it"
+        },
+        "dualStateDock": {
+          "label": "双态结果舱",
+          "motionGrammar": "persistentDualStateDock",
+          "statePersistence": "pending-card-remains-while-result-card-docks-beside-it",
+          "palette": [
+            "荧光绿"
+          ],
+          "colorMode": "single-accent"
+        }
+      }
+    },
+    "VerdictStamp": {
+      "visualFamily": "memoryVerdict",
+      "visualSignature": "setup-yields-to-one-verdict-then-a-separate-seal-confirms-it",
+      "motionGrammars": [
+        "setupVerdictThenSeal",
+        "verdictCardThenDecisionLock"
+      ],
+      "defaultVariant": "judgmentSeal",
+      "renderingContract": {
+        "host": "transparent-full-frame-coordinate-layer",
+        "visibleBounds": "local-verdict-and-adjacent-seal-block",
+        "opaquePageBackground": false
+      },
+      "variants": {
+        "judgmentSeal": {
+          "motionGrammar": "setupVerdictThenSeal"
+        },
+        "decisionLock": {
+          "label": "结论锁牌",
+          "motionGrammar": "verdictCardThenDecisionLock",
+          "palette": [
+            "深紫"
+          ],
+          "colorMode": "single-accent"
+        }
+      }
+    },
+    "QuoteFrame": {
+      "visualFamily": "memoryQuotation",
+      "visualSignature": "quote-rail-preserves-the-original-wording-before-grounded-attribution-arrives",
+      "motionGrammars": [
+        "quoteRailThenAttribution",
+        "excerptCardRevealThenSourceDock"
+      ],
+      "defaultVariant": "attributedQuote",
+      "renderingContract": {
+        "host": "transparent-full-frame-coordinate-layer",
+        "visibleBounds": "local-quotation-and-attribution-block",
+        "opaquePageBackground": false
+      },
+      "variants": {
+        "attributedQuote": {
+          "motionGrammar": "quoteRailThenAttribution"
+        },
+        "excerptCard": {
+          "label": "原话摘录卡",
+          "motionGrammar": "excerptCardRevealThenSourceDock",
+          "palette": [
+            "粉红"
+          ],
+          "colorMode": "single-accent"
+        }
+      }
+    }
+  },
+  "realObject": {
+    "show": {
+      "component": "MediaFrame",
+      "variant": "show",
+      "source": "https://remotionui.com/docs/components/media-frame",
+      "useWhen": "One real image or video needs to be visibly presented.",
+      "required": [
+        "src",
+        "placement",
+        "viewingTask",
+        "readabilityReason"
+      ],
+      "defaults": {
+        "mode": "show",
+        "fit": "contain",
+        "surfaceMode": "transparent",
+        "presentationScale": "large"
+      },
+      "invariants": [
+        "information-bearing-material-must-pass-phone-readability-review",
+        "local-scale-is-recognition-only",
+        "use-semantic-crop-zoom-focus-or-callout-when-large-is-still-unreadable",
+        "show-never-uses-detailTakeover"
+      ]
+    },
+    "focus": {
+      "component": "CalloutSpotlight",
+      "variant": "aimedCallout",
+      "source": "https://remotionui.com/docs/components/callout-spotlight",
+      "useWhen": "The viewer must locate one explicit region in a real screenshot or capture.",
+      "required": [
+        "backgroundSrc",
+        "target",
+        "sourceWidth",
+        "sourceHeight",
+        "title",
+        "placement"
+      ],
+      "invariants": [
+        "dim-only-inside-local-screenshot-panel",
+        "never-dim-or-paint-the-whole-composition"
+      ]
+    },
+    "demonstrate": {
+      "component": "MediaFrame",
+      "variant": "recordedDemo",
+      "source": "https://remotionui.com/docs/components/media-frame",
+      "useWhen": "A prerecorded operation video should be shown at the scale needed to follow its real interactions.",
+      "required": [
+        "src",
+        "sourceWidth",
+        "sourceHeight",
+        "placement",
+        "viewingTask",
+        "readabilityReason"
+      ],
+      "defaults": {
+        "mode": "recordedDemo",
+        "fit": "contain",
+        "surfaceMode": "transparent",
+        "presentationScale": "detailTakeover",
+        "loop": false,
+        "muted": false,
+        "volume": 0.35
+      },
+      "invariants": [
+        "probe-source-dimensions-before-planning",
+        "preserve-source-aspect-without-stretch",
+        "do-not-force-portrait-or-landscape",
+        "operation-demonstration-always-uses-full-screen-detailTakeover",
+        "recognition-only-clips-route-to-show-instead-of-recordedDemo",
+        "every-narrated-interaction-must-pass-phone-readability-review",
+        "no-tutorial-hook-code-or-cta-shell",
+        "preserve-useful-source-audio-by-default"
+      ]
+    },
+    "verify": {
+      "component": "BRollStack",
+      "variant": "proofDeck",
+      "allowedVariants": [
+        "proofDeck",
+        "evidenceTrack"
+      ],
+      "decisionRule": "Use proofDeck when one proof should take the front while later proof stays implied in a compact stack. Use evidenceTrack when the viewer should continuously feel that several proof materials exist and each spoken proof should travel into one large readable center position while adjacent materials remain visible at the sides.",
+      "source": "https://remotionui.com/docs/components/b-roll-stack",
+      "useWhen": "Two or more real proof shots support the spoken claim in sequence.",
+      "required": [
+        "items",
+        "placement"
+      ],
+      "invariants": [
+        "transparent-composition-host",
+        "local-or-large-proof-presentation-only",
+        "evidenceTrack-keeps-one-readable-center-item-and-visible-neighbor-materials",
+        "each-item-showAtInFrames-aligns-to-its-spoken-proof-when-available",
+        "no-full-page-color-or-gradient-background"
+      ],
+      "fallback": {
+        "when": "only-one-proof-item",
+        "component": "MediaFrame",
+        "variant": "show"
+      },
+      "detailFallback": {
+        "when": "active-proof-fails-phone-readability-or-needs-exact-inspection",
+        "component": "MediaFrame",
+        "variant": "show",
+        "presentationScale": "large"
+      }
+    }
+  },
+  "informationRelationship": {
+    "collection": {
+      "component": "LogoWall",
+      "variant": "peerTileWall",
+      "allowedVariants": [
+        "peerTileWall",
+        "magneticCluster"
+      ],
+      "decisionRule": "Use peerTileWall when the collection should be scanned as a stable regular grid. Use magneticCluster when the narration emphasizes that several equal peers assemble into one toolkit, system, group, or complete set.",
+      "source": "https://remotionui.com/docs/components/logo-wall",
+      "useWhen": "The scene names a set of peer items, features, categories, or members that should resolve as one whole.",
+      "required": [
+        "items",
+        "placement"
+      ],
+      "invariants": [
+        "each-spoken-item-keeps-its-own-showAtInFrames",
+        "do-not-turn-peer-items-into-a-ranked-list",
+        "magneticCluster-uses-transparent-glass-peer-capsules-not-solid-dark-cards",
+        "local-tile-wall-only"
+      ]
+    },
+    "comparison": {
+      "status": "curated",
+      "decisionRule": "Use the numeric route only when both sides provide directly comparable explicit values with the same unit. Otherwise use the conceptual two-card route.",
+      "numeric": {
+        "component": "ComparisonBars",
+        "variant": "numberDelta",
+        "allowedVariants": [
+          "numberDelta",
+          "metricShiftRail"
+        ],
+        "variantDecisionRule": "Use numberDelta when relative magnitude should be read from a shared proportional scale. Use metricShiftRail when the spoken emphasis is the explicit change from an old value to a new value and the transition itself should carry the motion.",
+        "source": "https://remotionui.com/docs/components/comparison-bars",
+        "required": [
+          "rows",
+          "placement"
+        ],
+        "invariants": [
+          "same-unit-values-only",
+          "never-invent-numbers",
+          "each-spoken-row-keeps-its-own-showAtInFrames",
+          "metricShiftRail-uses-transparent-glass-rows-and-never-a-solid-page-panel"
+        ]
+      },
+      "conceptual": {
+        "component": "ConceptComparisonCards",
+        "variant": "dualPeerCards",
+        "allowedVariants": [
+          "dualPeerCards",
+          "neonMirrorCompare"
+        ],
+        "variantDecisionRule": "Use dualPeerCards when each concept is best understood as one compact independent summary. Use neonMirrorCompare when attributes can be paired by the same dimensions and should be scanned across a shared central comparison axis.",
+        "source": "https://remotionui.com/docs/components/pricing-card",
+        "required": [
+          "sides",
+          "placement"
+        ],
+        "invariants": [
+          "two-sides-keep-equal-visual-status",
+          "each-side-and-attribute-keeps-its-own-showAtInFrames",
+          "never-invent-numeric-superiority-or-a-winner",
+          "local-two-card-block-only",
+          "neonMirrorCompare-uses-one-cyan-accent-with-opacity-geometry-and-motion-for-hierarchy-and-no-built-in-scene-background"
+        ],
+        "forbiddenFallback": "ComparisonBars"
+      }
+    },
+    "transformation": {
+      "component": "KanbanMove",
+      "variant": "stateTransfer",
+      "source": "https://remotionui.com/docs/components/kanban-move",
+      "useWhen": "One visible carrier, object, task, or idea changes from an old state into a new state.",
+      "required": [
+        "states",
+        "cards",
+        "placement"
+      ],
+      "invariants": [
+        "keep-one-carrier-visible-through-the-change",
+        "moveAtInFrames-matches-the-transformation-spoken-beat",
+        "result-state-does-not-appear-before-the-spoken-change"
+      ]
+    },
+    "sequence": {
+      "component": "FormFillSequence",
+      "variant": "spokenSteps",
+      "source": "https://remotionui.com/docs/components/form-fill-sequence",
+      "useWhen": "The narration gives ordered actions or stages whose order matters.",
+      "required": [
+        "steps",
+        "placement"
+      ],
+      "defaults": {
+        "layoutMode": "progressiveStack",
+        "attentionMode": "guided"
+      },
+      "invariants": [
+        "each-step-keeps-its-own-showAtInFrames",
+        "a-step-validates-before-focus-hands-off",
+        "later-steps-remain-hidden-before-their-spoken-beats",
+        "unspoken-steps-do-not-occupy-layout-space",
+        "visible-rows-share-the-scene-master-edge",
+        "cards-are-content-sized-without-an-empty-parent-panel"
+      ]
+    },
+    "chronology": {
+      "component": "ChronologyTrack",
+      "variant": "datedMilestones",
+      "source": "custom-adaptation-reviewed-in-neutral-preview",
+      "useWhen": "The narration organizes events by explicit dates, periods, eras, or historical development rather than merely listing ordered actions.",
+      "required": [
+        "items",
+        "placement"
+      ],
+      "invariants": [
+        "each-milestone-keeps-its-own-showAtInFrames",
+        "time-labels-must-come-from-the-spoken-content",
+        "do-not-use-for-an-undated-step-sequence"
+      ]
+    },
+    "causeEffect": {
+      "component": "CauseEffectChain",
+      "variant": "causalHandoff",
+      "source": "custom-adaptation-reviewed-in-neutral-preview",
+      "useWhen": "The narration states that one cause produces an effect, optionally through one explicit mechanism.",
+      "required": [
+        "cause",
+        "effect",
+        "placement"
+      ],
+      "invariants": [
+        "preserve-cause-to-effect-information-direction",
+        "show-the-mechanism-only-when-spoken-or-clearly-supported",
+        "the-effect-does-not-appear-before-its-spoken-beat"
+      ]
+    },
+    "hierarchy": {
+      "component": "HierarchyTree",
+      "variant": "balancedTree",
+      "source": "custom-adaptation-reviewed-in-neutral-preview",
+      "useWhen": "The narration expresses parent-child membership, levels, nesting, or one whole made of named parts.",
+      "required": [
+        "rootTitle",
+        "children",
+        "placement"
+      ],
+      "invariants": [
+        "one-centered-root-and-one-shared-trunk",
+        "peer-children-use-equal-size-and-even-spacing",
+        "each-child-keeps-its-own-showAtInFrames",
+        "do-not-use-for-peer-items-without-a-parent"
+      ]
+    },
+    "flow": {
+      "component": "FlowCarrier",
+      "variant": "stageTransfer",
+      "source": "custom-adaptation-reviewed-in-neutral-preview",
+      "useWhen": "One named object, signal, task, or payload is transferred through several locations or processing stages.",
+      "required": [
+        "stages",
+        "placement"
+      ],
+      "invariants": [
+        "keep-one-carrier-visible-through-the-route",
+        "carrier-arrival-aligns-to-each-stage-spoken-beat",
+        "do-not-use-for-static-ordered-instructions"
+      ]
+    },
+    "problemSolution": {
+      "component": "ProblemSolutionBridge",
+      "variant": "actionBridge",
+      "source": "locally-authored-and-user-approved-neutral-preview",
+      "useWhen": "The narration names a problem and then a concrete remedy, intervention, or solution state.",
+      "required": [
+        "problem",
+        "solution",
+        "actionLabel",
+        "actionShowAtInFrames",
+        "solutionShowAtInFrames",
+        "placement"
+      ],
+      "invariants": [
+        "show-the-problem-before-the-solution-action",
+        "the-action-label-must-name-the-spoken-remedy",
+        "do-not-invent-solution-benefits-or-a-success-result",
+        "each-problem-or-solution-item-keeps-its-own-showAtInFrames",
+        "peer-cards-use-content-measured-height-and-aligned-outer-edges",
+        "primary-state-text-remains-distinct-from-eyebrow-and-metadata-tiers"
+      ]
+    },
+    "conditionBoundary": {
+      "component": "ConditionGate",
+      "variant": "validationGate",
+      "source": "locally-authored-and-user-approved-neutral-preview",
+      "useWhen": "A result, permission, or next state depends on one or more explicit conditions or boundaries.",
+      "required": [
+        "inputLabel",
+        "conditions",
+        "passLabel",
+        "resultShowAtInFrames",
+        "placement"
+      ],
+      "invariants": [
+        "every-condition-must-be-supported-by-the-spoken-content",
+        "each-condition-keeps-its-own-showAtInFrames",
+        "the-gate-opens-only-when-all-rendered-conditions-pass",
+        "the-result-does-not-appear-before-resultShowAtInFrames"
+      ]
+    },
+    "feedbackLoop": {
+      "component": "FeedbackLoop",
+      "variant": "closedCycle",
+      "allowedVariants": [
+        "closedCycle",
+        "returnLoopBand"
+      ],
+      "variantDecisionRule": "Use closedCycle for a restrained circular cycle. Use returnLoopBand when the returning traveller and peer stage cards should make the repeated handoff more visually explicit.",
+      "source": "locally-authored-and-user-approved-neutral-preview",
+      "useWhen": "The result or feedback from one round returns to change the next round, forming a genuine cycle.",
+      "required": [
+        "stages",
+        "centerLabel",
+        "placement"
+      ],
+      "invariants": [
+        "the-last-stage-must-semantically-return-to-or-change-the-first",
+        "each-stage-keeps-its-own-showAtInFrames",
+        "preserve-the-spoken-cycle-direction",
+        "do-not-use-for-a-one-way-sequence-or-static-ecosystem"
+      ]
+    },
+    "matrix2x2": {
+      "component": "QuadrantMatrix",
+      "variant": "fourQuadrants",
+      "allowedVariants": [
+        "fourQuadrants",
+        "magneticDecisionBoard"
+      ],
+      "variantDecisionRule": "Use fourQuadrants for a restrained analytical matrix. Use magneticDecisionBoard when named items need to visibly snap into the four semantic decision zones.",
+      "source": "locally-authored-and-user-approved-neutral-preview",
+      "useWhen": "Two independent dimensions jointly determine the position or category of one or more named objects.",
+      "required": [
+        "xAxisLabel",
+        "yAxisLabel",
+        "quadrants",
+        "items",
+        "placement"
+      ],
+      "invariants": [
+        "both-axes-must-be-explicitly-supported-by-the-spoken-content",
+        "quadrant-labels-must-follow-the-two-axis-combinations",
+        "item-x-and-y-values-record-semantic-relative-position-not-invented-metrics",
+        "each-item-keeps-its-own-showAtInFrames"
+      ]
+    }
+  },
+  "memory": {
+    "keywordNumber": {
+      "status": "curated",
+      "decisionRule": "Use keywordImpact for a short load-bearing term or acronym; use numberLanding for one grounded number with a real unit. Do not render both for the same spoken payload.",
+      "keyword": {
+        "component": "ImpactToken",
+        "variant": "keywordImpact",
+        "allowedVariants": [
+          "keywordImpact",
+          "focusBeacon"
+        ],
+        "variantDecisionRule": "Use keywordImpact for an outline-to-accent word landing. Use focusBeacon when the short term should behave like a stronger visual memory nail with a luminous rail, scan, and persistent accent-color lock.",
+        "required": [
+          "text",
+          "placement"
+        ],
+        "invariants": [
+          "use-one-short-load-bearing-term",
+          "do-not-repeat-the-same-term-as-a-sentence-highlight",
+          "the-keyword-finishes-in-the-component-accent-color-without-an-underline"
+        ]
+      },
+      "number": {
+        "component": "ImpactToken",
+        "variant": "numberLanding",
+        "required": [
+          "value",
+          "unit",
+          "placement"
+        ],
+        "invariants": [
+          "number-and-unit-come-from-the-corrected-spoken-content",
+          "never-invent-a-progress-percentage-or-data-panel",
+          "unit-arrives-after-the-value-begins-to-land"
+        ]
+      }
+    },
+    "claimInsight": {
+      "component": "InsightFocus",
+      "variant": "claimLanding",
+      "allowedVariants": [
+        "claimLanding",
+        "spotlightThesis"
+      ],
+      "variantDecisionRule": "Use claimLanding for a restrained text-led insight. Use spotlightThesis when one compact conclusion should receive a stronger framed landing after a quieter setup.",
+      "useWhen": "One core claim, realization, or insight deserves a clear local hierarchy.",
+      "required": [
+        "headline",
+        "placement"
+      ],
+      "invariants": [
+        "setup-and-payoff-are-optional-and-grounded",
+        "highlight-only-one-short-load-bearing-span",
+        "the-highlighted-span-changes-to-the-component-accent-color-and-remains-readable"
+      ]
+    },
+    "question": {
+      "component": "QuestionTension",
+      "variant": "openQuestion",
+      "allowedVariants": [
+        "openQuestion",
+        "suspenseGap"
+      ],
+      "variantDecisionRule": "Use openQuestion for a restrained unresolved question. Use suspenseGap when the open edge and pulsing question mark should hold a stronger visual gap until the answer arrives.",
+      "useWhen": "The narration raises a meaningful unresolved question rather than presenting answer choices.",
+      "required": [
+        "question",
+        "placement"
+      ],
+      "invariants": [
+        "keep-the-question-unresolved-until-the-spoken-answer",
+        "do-not-invent-options-or-a-survey-ui",
+        "question-mark-and-arc-remain-supporting-not-primary-copy"
+      ]
+    },
+    "riskWarning": {
+      "component": "WarningBoundary",
+      "variant": "blockedRisk",
+      "allowedVariants": [
+        "blockedRisk",
+        "riskLock"
+      ],
+      "variantDecisionRule": "Use blockedRisk for a restrained warning boundary. Use riskLock when the narration states a clear prohibition, blocker, or non-negotiable risk that should visually lock closed.",
+      "useWhen": "The narration names a concrete risk, blocker, warning, or action to avoid.",
+      "required": [
+        "warning",
+        "placement"
+      ],
+      "invariants": [
+        "warning-wording-comes-from-the-spoken-content",
+        "no-diagonal-or-strikethrough-line-may-cross-readable-warning-text",
+        "the-prohibition-symbol-remains-separate-from-the-text"
+      ]
+    },
+    "definition": {
+      "component": "DefinitionReveal",
+      "variant": "termMeaning",
+      "allowedVariants": [
+        "termMeaning",
+        "termDecoder"
+      ],
+      "variantDecisionRule": "Use termMeaning for a restrained type-led definition. Use termDecoder when the term should be visually locked in one card and its meaning decoded into a connected peer card.",
+      "useWhen": "The narration explicitly introduces a term and then states what that term means.",
+      "required": [
+        "term",
+        "definition",
+        "definitionAtInFrames",
+        "placement"
+      ],
+      "invariants": [
+        "the-term-and-definition-come-from-the-corrected-spoken-content",
+        "the-definition-does-not-appear-before-its-spoken-beat",
+        "do-not-use-for-a-general-explanation-without-a-defined-term"
+      ]
+    },
+    "statusResult": {
+      "component": "ResultLock",
+      "variant": "statusToResult",
+      "allowedVariants": [
+        "statusToResult",
+        "dualStateDock"
+      ],
+      "variantDecisionRule": "Use statusToResult for a restrained status handoff. Use dualStateDock when both the initial state and the explicit result should remain visibly locked side by side with a stronger transition track.",
+      "useWhen": "The narration names an in-progress state and then an explicit outcome or completion state.",
+      "required": [
+        "pendingText",
+        "resultText",
+        "resultAtInFrames",
+        "placement"
+      ],
+      "invariants": [
+        "the-result-does-not-appear-before-resultAtInFrames",
+        "the-pending-card-remains-visible-after-the-result-card-appears",
+        "the-two-states-are-shown-as-side-by-side-peer-cards-not-one-replacing-the-other",
+        "numeric-progress-is-hidden-unless-a-grounded-percentage-is-provided",
+        "do-not-invent-success-completion-or-delivery-language"
+      ]
+    },
+    "verdict": {
+      "component": "VerdictStamp",
+      "variant": "judgmentSeal",
+      "allowedVariants": [
+        "judgmentSeal",
+        "decisionLock"
+      ],
+      "variantDecisionRule": "Use judgmentSeal for a restrained text-led conclusion. Use decisionLock when a compact verdict should land inside one glass decision card and receive a separate locked confirmation plate.",
+      "useWhen": "The narration reaches a clear judgment, conclusion, or final position rather than merely emphasizing a claim.",
+      "required": [
+        "verdict",
+        "verdictAtInFrames",
+        "placement"
+      ],
+      "invariants": [
+        "the-verdict-wording-comes-from-the-corrected-spoken-content",
+        "the-seal-arrives-after-the-verdict-spoken-beat",
+        "the-seal-and-underline-never-cross-readable-text"
+      ]
+    },
+    "quote": {
+      "component": "QuoteFrame",
+      "variant": "attributedQuote",
+      "allowedVariants": [
+        "attributedQuote",
+        "excerptCard"
+      ],
+      "variantDecisionRule": "Use attributedQuote for a restrained quotation rail. Use excerptCard when the complete original wording should read like a selected excerpt and its grounded attribution should dock as a separate source tag.",
+      "useWhen": "The narration preserves a recognizable original wording or explicitly attributes a statement to a source.",
+      "required": [
+        "quote",
+        "placement"
+      ],
+      "invariants": [
+        "preserve-the-corrected-original-wording",
+        "never-invent-an-attribution",
+        "do-not-disguise-a-quote-as-chat-or-screenshot-evidence"
+      ]
+    }
+  },
+  "unselectedLayers": {
+    "informationRelationship": [],
+    "memory": []
+  },
+  "globalForegroundInvariants": [
+    "the-full-frame-host-is-transparent-coordinate-space-only",
+    "ordinary-visible-pixels-stay-inside-a-measured-local-or-large-foreground-zone",
+    "only-h3-or-MediaFrame-recordedDemo-may-fill-the-canvas",
+    "information-bearing-real-material-must-pass-phone-readability-review",
+    "text-support-surfaces-derive-size-from-visible-content-with-tight-padding",
+    "spoken-primary-information-never-uses-helper-tier-typography",
+    "card-surfaces-contain-only-one-label-and-one-two-to-five-unit-primary-phrase",
+    "optional-card-auxiliary-copy-renders-outside-the-visible-card-surface-in-small-type",
+    "overlong-card-primary-copy-is-rewritten-or-rerouted-never-shrunk-or-wrapped",
+    "one-visual-variant-uses-exactly-one-approved-chromatic-accent-with-neutral-surfaces-only",
+    "component-defaults-never-select-a-screen-side-for-the-director",
+    "remotionui-full-scene-backgrounds-and-page-layouts-must-be-removed-during-adaptation"
+  ],
+  "iconLibrary": {
+    "path": "assets/semantic-foreground-pack/src/lib/semantic-icons.tsx",
+    "approvedReferenceIcons": [
+      "object",
+      "relations",
+      "memory",
+      "sceneLibrary"
+    ],
+    "copiedFromAtomicVocabulary": [
+      "search",
+      "locate",
+      "copy",
+      "send",
+      "code",
+      "workflow",
+      "check",
+      "clock",
+      "file",
+      "database",
+      "user",
+      "users",
+      "link",
+      "chart",
+      "money",
+      "lock",
+      "spark",
+      "settings",
+      "message",
+      "play",
+      "shield",
+      "branch",
+      "layers",
+      "gauge",
+      "star",
+      "question",
+      "quote",
+      "arrow"
+    ]
+  }
+}

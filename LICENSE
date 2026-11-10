@@ -1,0 +1,39 @@
+视频剪辑全链路skill 个人非商业使用许可
+Personal Non-Commercial Use License
+
+版权所有 (c) 2026 本仓库作者。保留所有权利。
+Copyright (c) 2026 the author of this repository. All rights reserved.
+
+一、授权范围
+在遵守本许可全部条款的前提下，作者授予个人免费、非独占、不可转让的权利：
+1. 下载、安装并运行本项目（包括其中的 Skill、编辑台源码、脚本、配置和文档，统称“本软件”）；
+2. 为自己个人学习、研究或个人创作而使用本软件；
+3. 为上述个人用途修改本软件，修改后的版本同样仅限本人使用。
+
+二、禁止事项
+未经作者事先书面授权，不得：
+1. 将本软件或其任何部分用于任何商业目的，包括但不限于：作为付费产品或服务的一部分、为客户或雇主提供有偿剪辑或代运营服务、用于企业或机构的经营活动、集成进商业软件或平台、以本软件开展培训收费等；
+2. 对本软件进行修改、二次开发、改写或与其他作品组合后，用于任何商业目的；
+3. 出售、出租、转授权、再分发或公开托管本软件及其修改版本；
+4. 删除或修改本许可、版权声明及第三方许可与署名。
+
+三、商业授权
+任何商业使用都必须事先取得作者的书面授权。如需商业授权，请通过本仓库提交 Issue 联系作者。
+
+四、第三方组件
+本软件包含或依赖的第三方组件、素材和服务（如 Remotion、RunningHub 及其他依赖），分别受其各自许可和服务条款约束，本许可不改变这些条款。使用 RunningHub 生成内容时，使用者须使用自己的账号与 API Key，并自行承担相应费用和合规责任。
+
+五、免责声明
+本软件按“现状”提供，不附带任何明示或默示的担保。作者不对因使用或无法使用本软件造成的任何损失承担责任。
+
+六、终止
+违反本许可任一条款，授权自动终止，使用者须立即停止使用并删除本软件及其全部副本和修改版本。
+
+---
+
+English summary (the Chinese text above prevails):
+Individuals may download, install, use and modify this software solely for their own personal,
+non-commercial purposes. Any commercial use, including commercial use of modified or derivative
+versions, as well as redistribution, resale or sublicensing, is prohibited without the author's
+prior written permission. Contact the author via an Issue in this repository for commercial
+licensing. Third-party components remain under their own licenses. Provided "as is", without warranty.

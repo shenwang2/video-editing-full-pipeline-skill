@@ -1,0 +1,20 @@
+# Local configuration can contain credentials and machine paths.
+**/*.local.json
+.env
+.env.*
+!.env.example
+**/node_modules/
+**/dist/
+**/projects/
+**/logs/
+**/output/
+**/autosave/
+**/.render/
+**/__pycache__/
+*.py[cod]
+*.mp4
+*.mov
+# The four upstream starter examples are licensed assets and are explicitly retained.
+!skills/remotion-foreground-builder-auto-reference-first/assets/starter-library/**/*.mp4
+# Component preview clips are referenced by semantic-component-contract.json.
+!skills/remotion-foreground-builder-auto-reference-first/assets/semantic-foreground-pack/previews/*.mp4

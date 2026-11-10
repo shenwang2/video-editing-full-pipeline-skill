@@ -1,0 +1,4 @@
+interface:
+  display_name: "Remotion Foreground Builder Auto · Reference First"
+  short_description: "One-command reference-first Remotion and H3 director"
+  default_prompt: "Use $remotion-foreground-builder-auto-reference-first to edit my video end to end: let the established Remotion director handle titles, structured information, and external materials, then add reference-first H3 B-roll only where it improves understanding, align every H3 phase to narration, and render the source-resolution composite without intermediate confirmation."

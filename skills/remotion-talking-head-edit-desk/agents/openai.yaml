@@ -1,0 +1,4 @@
+interface:
+  display_name: "口播剪辑编辑台版"
+  short_description: "生成可在本地编辑台自由调整组件素材时间线并渲染的口播剪辑项目"
+  default_prompt: "用人机协作编辑台流程处理这个口播视频，生成干净底片、素材和可编辑剪辑JSON，先不要替我渲染最终成片。"

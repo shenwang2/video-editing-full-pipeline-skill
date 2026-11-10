@@ -1,0 +1,121 @@
+{
+  "schemaVersion": "1.0.0",
+  "project": {
+    "id": "minimal-demo",
+    "name": "编辑台最小示例",
+    "mode": "human-assisted",
+    "createdAt": "2026-09-02T12:00:00+08:00",
+    "sourceSkill": "remotion-talking-head-edit-desk"
+  },
+  "composition": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "durationMs": 10000,
+    "backgroundAssetId": "clean-base",
+    "render": {
+      "codec": "h264",
+      "crf": 17,
+      "pixelFormat": "yuv420p",
+      "outputName": "minimal-demo-final.mp4"
+    }
+  },
+  "assets": [
+    {
+      "id": "clean-base",
+      "type": "clean-base",
+      "path": "media/clean-base.mp4",
+      "status": "placeholder",
+      "width": 1920,
+      "height": 1080,
+      "durationMs": 10000,
+      "hasAudio": true
+    },
+    {
+      "id": "soft-pop",
+      "type": "sfx",
+      "path": "media/audio/soft-pop.wav",
+      "status": "placeholder"
+    }
+  ],
+  "timeline": {
+    "foregroundEvents": [
+      {
+        "id": "memory-001",
+        "semanticLayer": "memory",
+        "semanticPurpose": "claimInsight",
+        "componentId": "InsightFocus",
+        "variantId": "claimLanding",
+        "startMs": 1200,
+        "endMs": 4600,
+        "anchorText": "编辑台直接读取剪辑JSON",
+        "placement": {
+          "mode": "preset",
+          "preset": "leftMiddle",
+          "alignmentToken": "sectionTitleLeft",
+          "visibleEdge": "left",
+          "zIndex": 30,
+          "align": "left"
+        },
+        "payload": {
+          "headline": "剪辑JSON",
+          "payoff": "自动变成前景画面"
+        },
+        "stylePreset": "warmTech",
+        "elementOverrides": {},
+        "compositionGroup": "scene-001",
+        "collisionCheckedWith": [],
+        "enabled": true
+      }
+    ],
+    "h3Events": [],
+    "captionCues": [
+      {
+        "id": "caption-001",
+        "startMs": 500,
+        "endMs": 3000,
+        "text": "把剪辑JSON丢进编辑台",
+        "stylePreset": "douyin-safe"
+      }
+    ],
+    "sfxCues": [
+      {
+        "id": "sfx-001",
+        "assetId": "soft-pop",
+        "atMs": 1200,
+        "volume": 0.75,
+        "enabled": true
+      }
+    ]
+  },
+  "settings": {
+    "componentStyleMode": "legacy",
+    "palette": "warmTech",
+    "safeArea": {
+      "top": 0.06,
+      "right": 0.08,
+      "bottom": 0.18,
+      "left": 0.08
+    },
+    "audio": {
+      "narrationGain": 1,
+      "h3MasterGain": 0.35,
+      "sfxMasterGain": 1
+    },
+    "captionStyle": {
+      "fontFamily": "Microsoft YaHei, Segoe UI, sans-serif",
+      "fontSize": 54,
+      "color": "#FFFFFF",
+      "strokeColor": "#111111",
+      "strokeWidth": 2,
+      "align": "center",
+      "backgroundEnabled": false,
+      "backgroundColor": "#000000",
+      "backgroundOpacity": 0.68,
+      "backgroundRadius": 14
+    }
+  },
+  "provenance": {
+    "note": "Placeholder media is intentional in the schema fixture."
+  }
+}

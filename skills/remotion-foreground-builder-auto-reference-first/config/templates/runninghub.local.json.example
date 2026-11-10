@@ -1,0 +1,48 @@
+{
+  "apiKey": "",
+  "baseUrl": "https://www.runninghub.cn",
+  "workflowId": "2089925021438406657",
+  "workflowFile": "runninghub-workflow-api.json",
+  "instanceType": "default",
+  "pollIntervalSeconds": 5,
+  "timeoutSeconds": 1200,
+  "defaults": {
+    "durationSeconds": 5,
+    "seed": 42,
+    "fps": 24
+  },
+  "nodes": {
+    "image": {
+      "nodeId": "14",
+      "fieldName": "image"
+    },
+    "lastImage": {
+      "nodeId": "19",
+      "fieldName": "image"
+    },
+    "duration": {
+      "nodeId": "13",
+      "fieldName": "value"
+    },
+    "prompt": {
+      "nodeId": "17",
+      "fieldName": "prompt"
+    },
+    "seed": {
+      "nodeId": "1",
+      "fieldName": "noise_seed"
+    },
+    "fps": {
+      "nodeId": "20",
+      "fieldName": "frame_rate"
+    },
+    "output": {
+      "nodeId": "20"
+    },
+    "aspectRatio": {
+      "nodeId": "16",
+      "fieldName": "aspect_ratio"
+    }
+  },
+  "generationMode": "FL2VA"
+}
